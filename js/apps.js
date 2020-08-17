@@ -1,22 +1,29 @@
-let html = '';
-let red;
-let green;
-let blue;
-let randomRGB;
-function randomValue() {
-    let num = Math.floor(Math.random() * 256);
-    return num; 
-};
 
-function randomRGB2(value) {
-    const color = `rgb( ${value() }, ${ value() }, ${ value() })`;
-    return color; 
+const main = document.querySelector('main');
+const randomNumber = getRandomNumber(5);
+let guess;
+let counter = 1;
+let guesses = 3;  
+
+function getRandomNumber(upper) {
+  return Math.floor( Math.random() * upper ) + 1;
 }
+console.log(randomNumber);
 
-for (let i = 1; i <=10; i++) {;
-    html += `<div style="background-color: ${randomRGB2(randomValue)}">${i}</div>`;
-}
+do { 
+    guess = prompt(`You have ${guesses} left. Guess the Computer's number: ___ `)
+    counter++; 
+    guesses --; 
+    if (guess == randomNumber) {
+        main.innerHTML = `<h1> It took you ${counter} times to guessed the number ${randomNumber}! </h1>`;
+        break;
+    } else if (guess == 3) { 
+        main.innerHTML = `<h1> Too many guesses! </h1>`;
+        break; 
+    }
+} while (parseInt(guess) !== randomNumber); 
+    
+    
+    
 
 
-
-document.querySelector('main').innerHTML = html;
