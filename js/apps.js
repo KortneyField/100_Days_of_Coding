@@ -1,13 +1,22 @@
+let html = '';
+let red;
+let green;
+let blue;
+let randomRGB;
+function randomValue() {
+    let num = Math.floor(Math.random() * 256);
+    return num; 
+};
 
-  const tMinus = 10;
-  let message = 'Liftoff! 🚀';
-  
-  for ( let i = tMinus; i >= 1; i-- ) { 
-    let status = prompt(`T-Minus ${i}... Continue? (Y/N)`);
-    if ( status === null || status.toLowerCase() === 'n' ) {
-      message = 'Abort launch!';
-      break;
-    }
-  }
-  
-  alert(message);
+function randomRGB2(value) {
+    const color = `rgb( ${value() }, ${ value() }, ${ value() })`;
+    return color; 
+}
+
+for (let i = 1; i <=10; i++) {;
+    html += `<div style="background-color: ${randomRGB2(randomValue)}">${i}</div>`;
+}
+
+
+
+document.querySelector('main').innerHTML = html;
