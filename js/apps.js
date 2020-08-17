@@ -1,9 +1,13 @@
-function getRandomNumber(upper) {
-    return Math.floor ( Math.random() * upper + 1 ); 
-}
 
-let counter = 0; 
-while (counter < 10) {
-    console.log (`The random number is ${getRandomNumber(10)}`);
-    counter += 1; 
-}
+  const tMinus = 10;
+  let message = 'Liftoff! 🚀';
+  
+  for ( let i = tMinus; i >= 1; i-- ) { 
+    let status = prompt(`T-Minus ${i}... Continue? (Y/N)`);
+    if ( status === null || status.toLowerCase() === 'n' ) {
+      message = 'Abort launch!';
+      break;
+    }
+  }
+  
+  alert(message);
