@@ -1,5 +1,6 @@
 /* 
-Array pets is created with multiple objects contain pet key: values information. 
+Array pets is created with multiple objects contain pet key: values information.
+Seperating it from the looping JS (directory) file helps with organization. 
 */
 
 const pets = [
