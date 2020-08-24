@@ -3,25 +3,40 @@ const listDiv = document.querySelector('.list');
 const descriptionInput = document.querySelector('input.description');
 const descriptionP = document.querySelector('p.description');
 const descriptionButton = document.querySelector('button.description');
+const listUL = listDiv.querySelector('ul');
 const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
 const removeItemButton = document.querySelector('button.removeItemButton');
 //const listItems = document.getElementsByTagName('li'); 
 
-/*for (let i=0; i< listItems.length; i = i+1) {
-  listItems[i].addEventListener('mouseover', () => {
-    listItems[i].textContent = listItems[i].textContent.toUpperCase();
-  });
-  listItems[i].addEventListener('mouseout', () => {
-    listItems[i].textContent = listItems[i].textContent.toLowerCase();
-  });
-}*/
+// for (let i=0; i< listItems.length; i = i+1) {
+//   listItems[i].addEventListener('mouseover', () => {
+//     listItems[i].textContent = listItems[i].textContent.toUpperCase();
+//   });
+//   listItems[i].addEventListener('mouseout', () => {
+//     listItems[i].textContent = listItems[i].textContent.toLowerCase();
+//   });
+// }
 
-listDiv.addEventListener('mouseover', () => {
-  listItems[i].textContent = listItems[i].textContent.toUpperCase();
-});
-listDiv.addEventListener('mouseout', () => {
-  listItems[i].textContent = listItems[i].textContent.toLowerCase();
+//This gives thee same function as above but it allows list items that are added can then be applied to the function. 
+// listDiv.addEventListener('mouseover', () => {
+//   if (event.target.tagName == 'LI') {
+//     event.target.textContent = event.target.textContent.toUpperCase();
+//   }
+// });
+// listDiv.addEventListener('mouseout', () => {
+//   if (event.target.tagName == 'LI') {
+//   event.target.textContent = event.target.textContent.toLowerCase();
+//   }
+// });
+
+
+listUL.addEventListener('click', (event) => {
+  if (event.target.tagName == 'BUTTON') {
+    let li = event.target.parentNode; 
+    let ul = li.parentNode; 
+    ul.removeChild(li);
+  }
 });
 
 
