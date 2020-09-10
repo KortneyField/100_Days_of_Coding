@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link  href="css/main.css" rel="stylesheet">
+  <title>AJAX with JavaScript</title>
+
+  <script>
+    //created a XML HTTP request object
+    var xhr = new XMLHttpRequest(); 
+    // Created a call back function
+    //onreadystatechange is an event listener. It runs when there is a change in the ajax. 
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        document.getElementById('ajax').innerHTML = xhr.responseText; 
+        console.log('ajax request made');
+      }
+    };
+    // Created an open request
+    xhr.open('GET', 'sidebar.html');
+    
+    // Sent the request
+    function sendAJAX () {
+      xhr.send();
+      //document.getElementById('load').style.display = 'none'
+      var btn = document.getElementById("load");
+
+                if (btn.value == "1") {
+                    btn.value = "2";
+                    btn.innerHTML = "Good Job";
+                }
+                else {
+                    btn.value = "1";
+                    btn.innerHTML = "Bring on the Ajax!";
+                }
+    }
+  </script>
+
+</head>
+<body>
+  <div class="grid-container centered">
+    <div class="grid-100">
+      <div class="contained">
+        <div class="grid-100">
+          <div class="heading">
+            <h1>Bring on the AJAX</h1>
+            <button id='load' onclick ='sendAJAX()' value="1">Bring on the Ajax!</button> 
+          </div>
+          <div id="ajax">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
